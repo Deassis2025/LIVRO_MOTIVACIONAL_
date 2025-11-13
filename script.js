@@ -40,8 +40,16 @@ function addFloating(page) {
   }
 }
 
-// Música de fundo após primeiro clique
+// Música de fundo com botão
 const music = document.getElementById('bgMusic');
-document.body.addEventListener('click', () => {
-  if(music.paused){ music.play(); }
-}, { once: true });
+const musicBtn = document.getElementById('musicBtn');
+
+musicBtn.addEventListener('click', () => {
+  if(music.paused){
+    music.play();
+    musicBtn.textContent = '🔇 Pausar Música';
+  } else {
+    music.pause();
+    musicBtn.textContent = '🎵 Tocar Música';
+  }
+});
